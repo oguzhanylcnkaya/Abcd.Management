@@ -1,0 +1,97 @@
+﻿@model Entities.ViewModels.ProjectCreateVM
+@{
+    ViewData["Title"] = "CreateProjects";
+}
+
+<div style="margin-top:20px">
+    <img src="~/images/file.png" style="height:40px; float:left" />
+    <h1 style="display:inline">Add New Project</h1>
+</div>
+<hr />
+
+<form enctype="multipart/form-data" asp-controller="Project" asp-action="CreateProjects" method="post" class="mt-3">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Project Name</label>
+        <div class="col-sm-10">
+            <input name="ProjectName" class="form-control" placeholder="Name">
+        </div>
+    </div>
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Icon</label>
+        <div class="col-sm-10">
+            <div class="custom-file">
+                <input name="Icon" type="file" class="form-control form-control-file custom-file-input">
+                <label class="custom-file-label">Chose File...</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10">
+            <textarea name="Description" maxlength="40" rows="10" wrap="hard" class="form-control"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="Category">
+                <option value="">Please Select</option>
+                @foreach (var item in Model.Categories)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Progress</label>
+        <div class="col-sm-10">
+            <input name="Progress" type="number" max="100" min="0" class="form-control" placeholder="Progress">
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="UserFullName" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select name="Users" multiple class="custom-select mr-sm-2 form-control">
+                @*<option value="">Please Select</option>*@
+                @foreach (var item in Model.UserFullName)
+                {
+
+                    <option value="@item.Id">
+                        @item.Label
+                    </option>
+                }
+            </select>
+
+
+        </div>
+    </div>
+
+    <div asp-validation-summary="All">
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </div>
+
+    @section Scripts
+    {
+        <script>
+            $(document).ready(function () {
+                $('.custom-file-input').on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+            });
+        </script>
+    }
+</form>
+

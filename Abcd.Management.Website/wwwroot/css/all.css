@@ -1,0 +1,121 @@
+﻿#username {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 15px;
+}
+
+li.ho:hover {
+    background-color: #555;
+}
+
+#enbas {
+    width: 100%;
+}
+
+#description {
+    width: 30%;
+    vertical-align: central;
+}
+
+#icon {
+    width: 5%;
+}
+
+#team {
+    width: 25%;
+}
+
+#progress {
+    width: 15%;
+}
+
+#projectname {
+    width: 15%
+}
+
+#categoryname {
+    width: 10%;
+}
+
+#table-header {
+    background: #222;
+    color: #FFF;
+}
+
+    #table-header tr th {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: medium;
+    }
+
+
+.cont th h1 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: #185875;
+}
+
+.cont td {
+    font-weight: normal;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.cont {
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    display: table;
+    
+}
+
+    .cont td, .cont th {
+        padding-bottom: 2%;
+        padding-top: 2%;
+        padding-left: 2%;
+    }
+
+    /* Background-color of the odd rows */
+    .cont tr:nth-child(odd) {
+        background-color: #323C50;
+    }
+
+    /* Background-color of the even rows */
+    .cont tr:nth-child(even) {
+        background-color: #2C3446;
+        color: white;
+    }
+
+    .cont th {
+        background-color: #1F2739;
+    }
+
+    /*.cont td:first-child {
+        color: #FB667A;
+    }*/
+
+    .cont tr:hover {
+        background-color: #464A52;
+        -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+        -moz-box-shadow: 0 6px 6px -6px #0E1119;
+        box-shadow: 0 6px 6px -6px #0E1119;
+    }
+
+    .cont td:hover {
+        background-color: #FFF842;
+        color: #403E10;
+        font-weight: bold;
+        box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+        transform: translate3d(6px, -6px, 0);
+        transition-delay: 0s;
+        transition-duration: 0.4s;
+        transition-property: all;
+        transition-timing-function: line;
+    }

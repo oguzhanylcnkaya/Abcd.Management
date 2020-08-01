@@ -1,0 +1,75 @@
+﻿@model Entities.ViewModels.ProjectListVM
+@{
+    ViewData["Title"] = "ListProjects";
+
+}
+
+<div style="margin-top:20px">
+    <img src="~/images/file.png" style="height:40px; float:left" />
+    <h1 style="display:inline">Projects</h1>
+    <span style="float:right">
+        <a asp-action="CreateProjects" type="button" class="btn btn-primary">Add New Project</a>
+    </span>
+</div>
+
+<hr />
+
+
+<table id="example" class="table table-striped table-bordered cont" style="width:100%">
+    <thead id="table-header">
+        <tr>
+            <th scope="col">Icon</th>
+            <th scope="col">Project Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Team</th>
+            <th scope="col">Description</th>
+            <th scope="col">Progress</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.projects)
+        {
+            var categoryName = item.Category != null ?
+                    CategoryManager.Categories[(int)item.Category]
+                    : string.Empty;
+
+
+            <tr id="enbas">
+
+                <td id="icon">
+                    <img src="@item.IconPath" asp-append-version="true" class="img-circle" style="width:30px; height:30px" />
+                </td>
+                <td id="projectname">@item.ProjectName</td>
+                <td id="categoryname">@categoryName</td>
+                <td id="team">
+                    <ul>
+                        @foreach (var name in item.Users)
+                        {
+                            <li>@name</li>
+                        }
+                    </ul>
+                </td>
+                <td id="description">               
+                        @item.Description                
+                </td>
+                <td id="progress">
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-container w3-blue w3-round-xlarge" style="width:@item.Progress%">@item.Progress%</div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+}
